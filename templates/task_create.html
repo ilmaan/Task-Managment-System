@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>CREATE A TASK </h1>
+            <form id="msform" method="POST" action="/task_create/" enctype="multipart/form-data" class="signupform1">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="fs-title">Task Information:</h2>
+                            </div>
+                            <div class="col-5">
+                                
+                            </div>
+                        </div>
+                            <label class="fieldlabels">Task: *</label> 
+                            <input type="text" name="title" class="form-control" id="" value="" placeholder="Name task" required  /> 
+                            <br>
+                            <label class="fieldlabels">Task Description: *</label> 
+                            
+                            <input type="text" name="description" class="form-control" value="" placeholder=" Task Description"  required /> 
+                            
+                            <label class="fieldlabels">Assigned To : *</label> 
+                            <select class="form-control" id="exampleFormControlSelect1" name="assigned_to"  required>
+                                
+                                {% for mem in member %}
+                                
+                                <option>{{mem.name}}</option>
+                                
+                                {% endfor %}
+                              </select>
+                              
+                              <br>
+                              
+                              
+                              
+                              <label class="fieldlabels">Due Date : *</label> 
+                              <input type="date" id="date" name="due_date" required>
+
+                              <br>
+                              
+                              <label class="fieldlabels">Task Category: *</label> 
+                              <select class="form-control" id="exampleFormControlSelect1" name="category" required>
+                                  {% for cat in task_category %}
+                                  
+                                  <option>{{cat.name}}</option>
+                                  
+                                  {% endfor %}
+                                </select>
+
+                               
+                            
+                        <label class="fieldlabels">Status: *</label>
+                            <div class="radioclass" >
+                            <div class="radio">
+                                <div class="radio__1">
+                                  <input id="radio-1" type="radio"  name="status" value="To-Do" checked>
+                                  <label for="radio-1"></label>
+                                  <p>To-Do</p>
+                                </div>
+                                <div class="radio__2">
+                                  <input id="radio-2" type="radio" name="status" value="In-Progress" >
+                                  <label for="radio-2"></label>
+                                  <p>In-Progress</p>
+                                </div>
+                                <div class="radio__2">
+                                    <input id="radio-2" type="radio" name="status" value="Done" >
+                                    <label for="radio-2"></label>
+                                    <p>Done</p>
+                                  </div>
+                              </div>
+                              </div>
+                              <br>
+                            
+                              <label class="fieldlabels">Priority: *</label>
+                              <select class="form-control" id="exampleFormControlSelect1" name="priority" required >
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                              </select>
+                                <br>
+                              
+                          
+<!-- 
+                        <label class="fieldlabels">Upload error sample here: *</label>
+                        <input type="file"  name="error_files" /> -->
+
+                            
+                              <br>
+                        <input type="submit" value="Submit" />  
+                    
+                <!-- <input type="submit" value="SUVR"> -->
+                </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

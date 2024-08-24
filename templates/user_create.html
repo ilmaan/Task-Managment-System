@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <h1>CREATE A NEW USER </h1>
+            <form id="msform" method="POST" action="/user_create/" enctype="multipart/form-data" class="signupform1">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="form-card">
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="fs-title">User Information:</h2>
+                            </div>
+                            <div class="col-5">
+                                
+                            </div>
+                        </div>
+                            <label class="fieldlabels">User Name: *</label> 
+                            <input type="text" name="name" class="form-control" id="" value="" placeholder="Name" required  /> 
+                            <br>
+
+                            <label class="fieldlabels">User Email: *</label> 
+                            <input type="email" name="email" class="form-control" id="" value="" placeholder="Email" required  /> 
+                            <br>
+
+                            <label class="fieldlabels">Password: *</label> 
+                            <input type="password" name="password" class="form-control" id="" value="" placeholder="Password" required  /> 
+                            <br>
+
+
+                            
+                            
+                              <br>
+                        <input type="submit" value="Submit" />  
+                    
+                <!-- <input type="submit" value="SUVR"> -->
+                </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
